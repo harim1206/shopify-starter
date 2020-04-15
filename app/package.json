@@ -1,0 +1,53 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "compile-js": "webpack --progress",
+    "bundle-scss": "scss-bundle --entryFile styles/main.scss --outFile ../assets/theme-bundled.scss.liquid",
+    "js:scss": "npm run compile-js && npm run bundle-scss",
+    "watch:js": "webpack --progress --watch",
+    "watch:scss": "onchange 'styles/**/*.scss' -- npm run bundle-scss",
+    "watch:theme:dev": "cd ../ && theme watch --env=development",
+    "watch:all:dev": "npm-run-all --parallel watch:scss watch:js watch:theme:dev",
+    "replace:theme:dev": "npm run js:scss && cd ../ && theme deploy --env=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.1.0",
+    "scss-bundle": "^3.1.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "comments": {
+    "scripts": {
+      "compile-js": "Compile JS via Webpack, output is assets/theme.js",
+      "bundle-scss": "Bundle SCSS, output is assets/theme-bundled.css.liquid",
+      "js:scss": "Run compile-js & bundle-scss",
+      "watch:js": "Watch for JS changes, re-compile",
+      "watch:scss": "Watch for SCSS changes, rebundle",
+      "watch:theme:dev": "Watch for liquid changes",
+      "watch:all:dev": "Watch for JS & SCSS & liquid changes",
+      "replace:theme:dev": "Compile JS & SCSS, and deploy theme"
+    },
+    "devDependencies": {
+      "@babel/core": "Core of Babel",
+      "@babel/preset-env": "Preset for ES6",
+      "babel-loader": "Babel loader for Webpack",
+      "node-sass": "Compile SCSS to CSS",
+      "npm-run-all": "Execute multiple npm scripts in parallel",
+      "onchange": "Watch for changes in files using glob and execute npm scripts on change",
+      "scss-bundle": "Bundle SCSS",
+      "webpack": "Webpack",
+      "webpack-cli": "Webpack command line"
+    }
+  }
+}
