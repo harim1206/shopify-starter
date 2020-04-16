@@ -1,5 +1,5 @@
 const hello = () => {
-  console.log("sup") 
+  console.log("sup dude") 
 }
 
 hello()

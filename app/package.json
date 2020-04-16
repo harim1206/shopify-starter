@@ -11,7 +11,7 @@
     "watch:scss": "onchange 'styles/**/*.scss' -- npm run bundle-scss",
     "watch:theme:dev": "cd ../ && theme watch --env=development",
     "watch:all:dev": "npm-run-all --parallel watch:scss watch:js watch:theme:dev",
-    "replace:theme:dev": "npm run js:scss && cd ../ && theme deploy --env=development"
+    "deploy:theme:dev": "npm run js:scss && cd ../ && theme deploy --env=development"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
@@ -36,7 +37,7 @@
       "watch:scss": "Watch for SCSS changes, rebundle",
       "watch:theme:dev": "Watch for liquid changes",
       "watch:all:dev": "Watch for JS & SCSS & liquid changes",
-      "replace:theme:dev": "Compile JS & SCSS, and deploy theme"
+      "deploy:theme:dev": "Compile JS & SCSS, and deploy theme"
     },
     "devDependencies": {
       "@babel/core": "Core of Babel",
@@ -49,5 +50,9 @@
       "webpack": "Webpack",
       "webpack-cli": "Webpack command line"
     }
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

@@ -8,3 +8,9 @@
     </a>
   </div>
 {% endfor %}
+
+<div class="index-sections">
+  {{ content_for_index }}
+  {% section "homepage" %}
+  {% section "product" %}
+</div>
